@@ -1,5 +1,5 @@
-function name() {
-    console.log('Hello World');
-}
+const user = {
+    name: 'John',
+};
 
-name();
+console.log(user.name);
