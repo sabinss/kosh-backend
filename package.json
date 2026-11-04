@@ -5,7 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "dev": "nodemon --exec \"node --import jiti/register\" src/server.ts",
+        "dev": "nodemon --exec tsx src/server.ts",
         "format:fix": "prettier . --write",
         "format:check": "prettier . --check",
         "lint": "eslint .",
@@ -19,7 +19,9 @@
         "@eslint/js": "^10.0.1",
         "@types/dotenv": "^6.1.1",
         "@types/express": "^5.0.6",
+        "@types/http-errors": "^2.0.5",
         "@types/node": "^26.6.6",
+        "@types/winston": "^2.4.4",
         "eslint": "^10.14.0",
         "globals": "^17.14.0",
         "husky": "^9.1.7",
@@ -27,13 +29,17 @@
         "nodemon": "^3.1.14",
         "prettier": "3.9.10",
         "ts-node": "^10.9.2",
+        "tsx": "^4.23.15",
         "typescript": "^5.9.3",
         "typescript-eslint": "^8.72.1"
     },
     "dependencies": {
         "dotenv": "^18.0.9",
         "express": "^5.3.0",
-        "jiti": "^2.7.0"
+        "http-errors": "^2.0.1",
+        "jiti": "^2.7.0",
+        "joi": "^18.3.1",
+        "winston": "^3.19.0"
     },
     "lint-staged": {
         "*.{js,mjs,cjs,ts,mts,cts}": [
