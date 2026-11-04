@@ -1,5 +1,17 @@
-const user = {
-    name: 'John',
+import app from './app';
+import { Config } from './config';
+
+const startServer = () => {
+    const PORT = Config.PORT;
+    try {
+        app.listen(PORT, () => {
+            // eslint-disable-next-line no-console
+            console.log(`Server is running on port ${PORT}`);
+        });
+    } catch (error) {
+        console.error(error);
+        process.exit(1);
+    }
 };
 
-console.log(user.name);
+startServer();

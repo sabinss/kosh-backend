@@ -60,6 +60,11 @@ export default defineConfig([
 
     // 4. Exclude build artifacts and config files from strict type-checking if needed
     {
-        ignores: ['dist/**', 'node_modules/**', 'build/**'],
+        ignores: [
+            'dist/**',
+            'node_modules/**',
+            'build/**',
+            'eslint.config.mts',
+        ],
     },
 ]);

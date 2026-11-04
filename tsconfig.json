@@ -4,11 +4,16 @@
         // File Layout
         "rootDir": "./src",
         "outDir": "./dist",
-
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "strict": true,
         // Environment Settings
         // See also https://aka.ms/tsconfig/module
-        "module": "nodenext",
-        "target": "esnext",
+        "allowImportingTsExtensions": true,
+        "rewriteRelativeImportExtensions": true,
         "lib": ["esnext"],
         "types": ["node"],
 
@@ -30,12 +35,11 @@
         // "noPropertyAccessFromIndexSignature": true,
 
         // Recommended Options
-        "strict": true,
         "jsx": "react-jsx",
         "verbatimModuleSyntax": true,
         "isolatedModules": true,
         "noUncheckedSideEffectImports": true,
-        "moduleDetection": "force",
-        "skipLibCheck": true
-    }
+        "moduleDetection": "force"
+    },
+    "include": ["src"]
 }
