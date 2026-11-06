@@ -65,6 +65,7 @@ export default defineConfig([
             'node_modules/**',
             'build/**',
             'eslint.config.mts',
+            'drizzle.config.js',
         ],
     },
 ]);

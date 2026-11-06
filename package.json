@@ -6,6 +6,9 @@
     "type": "module",
     "scripts": {
         "dev": "nodemon --exec tsx src/server.ts",
+        "db:generate": "drizzle-kit generate",
+        "db:migrate": "drizzle-kit migrate",
+        "db:studio": "drizzle-kit studio",
         "format:fix": "prettier . --write",
         "format:check": "prettier . --check",
         "lint": "eslint .",
@@ -21,7 +24,9 @@
         "@types/express": "^5.0.6",
         "@types/http-errors": "^2.0.5",
         "@types/node": "^26.6.6",
+        "@types/pg": "^8.23.1",
         "@types/winston": "^2.4.4",
+        "drizzle-kit": "^1.0.0-rc.5",
         "eslint": "^10.14.0",
         "globals": "^17.14.0",
         "husky": "^9.1.7",
@@ -35,10 +40,12 @@
     },
     "dependencies": {
         "dotenv": "^18.0.9",
+        "drizzle-orm": "^1.0.0-rc.5",
         "express": "^5.3.0",
         "http-errors": "^2.0.1",
         "jiti": "^2.7.0",
         "joi": "^18.3.1",
+        "pg": "^8.23.1",
         "winston": "^3.19.0"
     },
     "lint-staged": {
