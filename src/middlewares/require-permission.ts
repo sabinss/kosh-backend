@@ -3,13 +3,13 @@ import type { PermissionCode } from '../common/permissions/registry';
 import { ForbiddenError } from '../errors/forbidden-error';
 import { UnauthorizedError } from '../errors/unauthorized-error';
 
-// Set by the authentication middleware once real login is in place.
-// Until then, protected routes return 401.
+// Set by the authenticate middleware (src/middlewares/authenticate.ts).
+// id = the user, sid = the session (device) this request came from.
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-namespace
     namespace Express {
         interface Request {
-            user?: { id: string };
+            user?: { id: string; sid: string };
         }
     }
 }

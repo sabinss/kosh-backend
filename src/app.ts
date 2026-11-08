@@ -3,6 +3,7 @@ import express, {
     type Response,
     type NextFunction,
 } from 'express';
+import cookieParser from 'cookie-parser';
 import { errorHandler } from './middlewares/error-handler';
 import { diScope } from './middlewares/di-scope';
 import { NotFoundError } from './errors/not-found-error';
@@ -13,6 +14,9 @@ const app = express();
 
 // Parses JSON bodies; malformed JSON becomes a 400 handled by errorHandler
 app.use(express.json());
+
+// Parses the Cookie header into req.cookies (used for the refresh token)
+app.use(cookieParser());
 
 // Gives every request its own container scope (req.scope)
 app.use(diScope);

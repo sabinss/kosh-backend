@@ -1,5 +1,5 @@
 import { text, pgTable, varchar } from 'drizzle-orm/pg-core';
-import { primaryId, timestamps } from './helpers';
+import { primaryId, timestamps } from '../helpers';
 
 export const users = pgTable('users', {
     id: primaryId(),

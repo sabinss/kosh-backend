@@ -1,5 +1,5 @@
 import { pgTable, text, varchar } from 'drizzle-orm/pg-core';
-import { primaryId, timestamps } from './helpers';
+import { primaryId, timestamps } from '../helpers';
 
 // Mirror of the code registry (src/common/permissions/registry.ts).
 // Rows are created by `npm run db:seed`, not typed in by hand.

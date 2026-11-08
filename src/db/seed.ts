@@ -16,9 +16,9 @@ import { hashPassword } from '../common/password';
 import { syncRbac } from '../common/permissions/sync';
 import { SUPER_ADMIN_ROLE } from '../common/permissions/role-defaults';
 import { db } from './index';
-import { roles } from './schema/roles';
-import { userRoles } from './schema/user-roles';
-import { users } from './schema/users';
+import { roles } from './schema/auth/roles';
+import { userRoles } from './schema/auth/user-roles';
+import { users } from './schema/auth/users';
 
 const requireEnv = (value: string | undefined, key: string): string => {
     if (!value) {

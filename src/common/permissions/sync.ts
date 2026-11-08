@@ -1,8 +1,8 @@
 import { sql } from 'drizzle-orm';
 import type { Database } from '../../db';
-import { permissions } from '../../db/schema/permissions';
-import { rolePermissions } from '../../db/schema/role-permissions';
-import { roles } from '../../db/schema/roles';
+import { permissions } from '../../db/schema/auth/permissions';
+import { rolePermissions } from '../../db/schema/auth/role-permissions';
+import { roles } from '../../db/schema/auth/roles';
 import { PERMISSIONS } from './registry';
 import { ROLE_DEFAULTS, type RoleName } from './role-defaults';
 

@@ -15,10 +15,29 @@ services:
             dockerfile: docker/dev/Dockerfile
         ports:
             - '5555:5555'
+            - '9229:9229'
+        # Host source replaces the copy baked into the image, so edits are visible
+        # without a rebuild. The second volume keeps the image's node_modules.
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
+        # Polling is required for bind mounts; otherwise Nodemon never sees saves.
+        command:
+            [
+                'npx',
+                'nodemon',
+                '--legacy-watch',
+                '--exec',
+                'node --inspect=0.0.0.0:9229 --import tsx',
+                'src/server.ts',
+            ]
         depends_on:
             - postgresdb
         env_file:
             - .env
+        # Inside this container, localhost is the app itself. Postgres is the other service.
+        environment:
+            DATABASE_URL: postgres://postgres:postgres@postgresdb:5432/kosh-db
 
 volumes:
     postgres_data:

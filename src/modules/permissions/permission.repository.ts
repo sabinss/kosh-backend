@@ -1,8 +1,8 @@
 import { eq } from 'drizzle-orm';
 import type { Database } from '../../db';
-import { permissions } from '../../db/schema/permissions';
-import { rolePermissions } from '../../db/schema/role-permissions';
-import { userRoles } from '../../db/schema/user-roles';
+import { permissions } from '../../db/schema/auth/permissions';
+import { rolePermissions } from '../../db/schema/auth/role-permissions';
+import { userRoles } from '../../db/schema/auth/user-roles';
 import { BaseRepository } from '../../common/repositories/base.repository';
 
 export class PermissionRepository extends BaseRepository<typeof permissions> {

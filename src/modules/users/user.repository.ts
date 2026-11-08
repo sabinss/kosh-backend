@@ -1,8 +1,8 @@
 import { eq } from 'drizzle-orm';
 import type { Database } from '../../db';
-import { roles, type Role } from '../../db/schema/roles';
-import { userRoles } from '../../db/schema/user-roles';
-import { users, type NewUser, type User } from '../../db/schema/users';
+import { roles, type Role } from '../../db/schema/auth/roles';
+import { userRoles } from '../../db/schema/auth/user-roles';
+import { users, type NewUser, type User } from '../../db/schema/auth/users';
 import { BaseRepository } from '../../common/repositories/base.repository';
 import type { Logger } from 'winston';
 // A user together with the roles assigned to them.
