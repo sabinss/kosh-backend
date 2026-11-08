@@ -1,0 +1,304 @@
+{
+    "type": "diff",
+    "version": "9",
+    "dialect": "postgres",
+    "id": "1c83e915-39d2-44ee-a315-96b030676d2a",
+    "prevIds": ["73c3e511-03cf-417a-b0c5-45ba5102d222"],
+    "footprints": [
+        {
+            "statementType": "create_table",
+            "statementTarget": ["table", "public", "permissions"],
+            "writes": [
+                "s|tbl|public.permissions",
+                "n|tbl|public.permissions",
+                "e|tbl|public.permissions",
+                "n|rel|public.permissions",
+                "n|type|public.permissions",
+                "n|rel|public.permissions_pkey",
+                "n|rel|public.permissions_code_key"
+            ],
+            "reads": ["n|sch|public"]
+        },
+        {
+            "statementType": "create_table",
+            "statementTarget": ["table", "public", "role_permissions"],
+            "writes": [
+                "s|tbl|public.role_permissions",
+                "n|tbl|public.role_permissions",
+                "e|tbl|public.role_permissions",
+                "n|rel|public.role_permissions",
+                "n|type|public.role_permissions",
+                "n|rel|public.role_permissions_pkey"
+            ],
+            "reads": ["n|sch|public"]
+        },
+        {
+            "statementType": "create_fk",
+            "statementTarget": ["table", "public", "role_permissions"],
+            "writes": [
+                "s|fk|public.role_permissions.role_permissions_role_id_roles_id_fkey",
+                "n|fk|public.role_permissions.role_permissions_role_id_roles_id_fkey",
+                "e|fk|public.role_permissions.role_permissions_role_id_roles_id_fkey",
+                "n|con|public.role_permissions.role_permissions_role_id_roles_id_fkey"
+            ],
+            "reads": [
+                "n|tbl|public.role_permissions",
+                "n|sch|public",
+                "n|tbl|public.roles",
+                "n|sch|public",
+                "n|col|public.role_permissions.role_id",
+                "n|col|public.roles.id",
+                "e|uniqueness|public.roles.id"
+            ]
+        },
+        {
+            "statementType": "create_fk",
+            "statementTarget": ["table", "public", "role_permissions"],
+            "writes": [
+                "s|fk|public.role_permissions.role_permissions_permission_id_permissions_id_fkey",
+                "n|fk|public.role_permissions.role_permissions_permission_id_permissions_id_fkey",
+                "e|fk|public.role_permissions.role_permissions_permission_id_permissions_id_fkey",
+                "n|con|public.role_permissions.role_permissions_permission_id_permissions_id_fkey"
+            ],
+            "reads": [
+                "n|tbl|public.role_permissions",
+                "n|sch|public",
+                "n|tbl|public.permissions",
+                "n|sch|public",
+                "n|col|public.role_permissions.permission_id",
+                "n|col|public.permissions.id",
+                "e|uniqueness|public.permissions.id"
+            ]
+        }
+    ],
+    "deltas": [
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "name": "permissions",
+                "isRlsEnabled": false,
+                "entityType": "tables"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "name": "role_permissions",
+                "isRlsEnabled": false,
+                "entityType": "tables"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "permissions",
+                "name": "id",
+                "type": "uuid",
+                "typeSchema": null,
+                "notNull": true,
+                "dimensions": 0,
+                "default": "gen_random_uuid()",
+                "generated": null,
+                "identity": null,
+                "entityType": "columns"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "permissions",
+                "name": "code",
+                "type": "varchar(100)",
+                "typeSchema": null,
+                "notNull": true,
+                "dimensions": 0,
+                "default": null,
+                "generated": null,
+                "identity": null,
+                "entityType": "columns"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "permissions",
+                "name": "feature",
+                "type": "varchar(50)",
+                "typeSchema": null,
+                "notNull": true,
+                "dimensions": 0,
+                "default": null,
+                "generated": null,
+                "identity": null,
+                "entityType": "columns"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "permissions",
+                "name": "description",
+                "type": "text",
+                "typeSchema": null,
+                "notNull": false,
+                "dimensions": 0,
+                "default": null,
+                "generated": null,
+                "identity": null,
+                "entityType": "columns"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "permissions",
+                "name": "created_at",
+                "type": "timestamp with time zone",
+                "typeSchema": null,
+                "notNull": true,
+                "dimensions": 0,
+                "default": "now()",
+                "generated": null,
+                "identity": null,
+                "entityType": "columns"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "permissions",
+                "name": "updated_at",
+                "type": "timestamp with time zone",
+                "typeSchema": null,
+                "notNull": true,
+                "dimensions": 0,
+                "default": "now()",
+                "generated": null,
+                "identity": null,
+                "entityType": "columns"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "role_permissions",
+                "name": "role_id",
+                "type": "uuid",
+                "typeSchema": null,
+                "notNull": true,
+                "dimensions": 0,
+                "default": null,
+                "generated": null,
+                "identity": null,
+                "entityType": "columns"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "role_permissions",
+                "name": "permission_id",
+                "type": "uuid",
+                "typeSchema": null,
+                "notNull": true,
+                "dimensions": 0,
+                "default": null,
+                "generated": null,
+                "identity": null,
+                "entityType": "columns"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "role_permissions",
+                "name": "created_at",
+                "type": "timestamp with time zone",
+                "typeSchema": null,
+                "notNull": true,
+                "dimensions": 0,
+                "default": "now()",
+                "generated": null,
+                "identity": null,
+                "entityType": "columns"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "role_permissions",
+                "name": "role_permissions_role_id_roles_id_fkey",
+                "nameExplicit": false,
+                "columns": ["role_id"],
+                "schemaTo": "public",
+                "tableTo": "roles",
+                "columnsTo": ["id"],
+                "onUpdate": "NO ACTION",
+                "onDelete": "CASCADE",
+                "entityType": "fks"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "role_permissions",
+                "name": "role_permissions_permission_id_permissions_id_fkey",
+                "nameExplicit": false,
+                "columns": ["permission_id"],
+                "schemaTo": "public",
+                "tableTo": "permissions",
+                "columnsTo": ["id"],
+                "onUpdate": "NO ACTION",
+                "onDelete": "CASCADE",
+                "entityType": "fks"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "role_permissions",
+                "name": "role_permissions_pkey",
+                "columns": ["role_id", "permission_id"],
+                "nameExplicit": false,
+                "entityType": "pks"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "permissions",
+                "name": "permissions_pkey",
+                "columns": ["id"],
+                "nameExplicit": false,
+                "entityType": "pks"
+            }
+        },
+        {
+            "op": "create",
+            "row": {
+                "schema": "public",
+                "table": "permissions",
+                "name": "permissions_code_key",
+                "nameExplicit": false,
+                "columns": ["code"],
+                "nullsNotDistinct": false,
+                "entityType": "uniques"
+            }
+        }
+    ]
+}

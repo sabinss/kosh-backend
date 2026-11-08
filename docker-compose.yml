@@ -9,6 +9,16 @@ services:
             POSTGRES_DB: kosh-db
         volumes:
             - 'postgres_data:/var/lib/postgresql/data'
+    kosh-server:
+        build:
+            context: .
+            dockerfile: docker/dev/Dockerfile
+        ports:
+            - '5555:5555'
+        depends_on:
+            - postgresdb
+        env_file:
+            - .env
 
 volumes:
     postgres_data:

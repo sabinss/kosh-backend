@@ -1,19 +1,21 @@
 import { eq } from 'drizzle-orm';
-import { db as defaultDb, type Database } from '../../db';
+import type { Database } from '../../db';
 import { roles, type Role } from '../../db/schema/roles';
 import { userRoles } from '../../db/schema/user-roles';
 import { users, type NewUser, type User } from '../../db/schema/users';
 import { BaseRepository } from '../../common/repositories/base.repository';
-
+import type { Logger } from 'winston';
 // A user together with the roles assigned to them.
 export interface UserWithRoles extends User {
     roles: Role[];
 }
 
 export class UserRepository extends BaseRepository<typeof users> {
-    // Defaults to the shared db. Pass a transaction to run inside one.
-    constructor(db: Database = defaultDb) {
+    private readonly logger: Logger;
+    // Dependencies arrive from the container. Pass a transaction as `db` to run inside one.
+    constructor({ db, logger }: { db: Database; logger: Logger }) {
         super(db, users);
+        this.logger = logger;
     }
 
     // ---- Table-specific queries built on the base methods -------------------
